@@ -1,4 +1,4 @@
-<?php include_once "./db.php";?>
+<?php include_once "./db.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +19,12 @@
         </div>
     </div>
     <header class="container">
-        <img src="" alt="">
+        <?php
+        $img = $Title->find(['sh' => 1]);
+        ?>
+
+        <tr>
+            <img src="./img/<?= $img['img'] ?>" alt="">
     </header>
     <main class="container">
         <h3 class="text-center">網站標題管理</h3>
@@ -34,25 +39,25 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows=$Title->all();
-                foreach($rows as $row){
-                    ?>
-                
-                <tr>
-                    <td><img src="./img/<?=$row['img'];?>" alt="" width="300px" height="30px"></td>
-                    <td><input type="text" name="text[]" id="" value="<?=$row['text'];?>"  style="width: 90%;"></td>
-                    <td><input type="radio" name="sh" id="" value="<?=$row['id'];?>"></td>
-                    <td><input type="checkbox" name="del[<?=$row['id'];?>]" id="" value=""></td>
-                    <!-- 如果直接使用 <button> 會預設為 submit -->
-                    <td><input class="btn btn-info" type="button" value="更新圖片"></td>
-                    <input type="hidden" name="id[]" value="<?=$row['id'];?>">
-                </tr>
+                $rows = $Title->all();
+                foreach ($rows as $row) {
+                ?>
+
+                    <tr>
+                        <td><img src="./img/<?= $row['img']; ?>" alt="" width="300px" height="30px"></td>
+                        <td><input type="text" name="text[]" id="" value="<?= $row['text']; ?>" style="width: 90%;"></td>
+                        <td><input type="radio" name="sh" id="" value="<?= $row['id']; ?>"></td>
+                        <td><input type="checkbox" name="del[<?= $row['id']; ?>]" id="" value=""></td>
+                        <!-- 如果直接使用 <button> 會預設為 submit -->
+                        <td><input class="btn btn-info" type="button" value="更新圖片"></td>
+                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                    </tr>
                 <?php
                 };
                 ?>
             </table>
             <div class="d-flex justify-content-between">
-                                                    <!-- 'view.php?do=title' 改為 'title.php' 因為原本是在同一個檔案塞全就modal -->
+                <!-- 'view.php?do=title' 改為 'title.php' 因為原本是在同一個檔案塞全就modal -->
                 <div><input type="button" onclick="op('#cover','#cvr','title.php')" value="新增網站標題圖片"></div>
                 <div>
                     <input type="submit" value="修改確定">
