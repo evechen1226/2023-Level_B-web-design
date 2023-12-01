@@ -1,10 +1,10 @@
 <?php
 include_once "../db.php";
-// echo dd($_POST);
+echo dd($_POST);
 
 $date = [];
 $date['text'] = $_POST['subject'];
-$date['subject_id'] = 0; //預設 0 為 主題, 因為 id 沒有從 0 開始
+$date['subject_id'] = 0; //預設 0 為主, 因為 id 沒有從 0 開始
 $date['conut'] = 0;
 $date['sh'] = 1;
 
