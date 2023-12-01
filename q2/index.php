@@ -1,3 +1,4 @@
+<?php include_once "./db.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +28,7 @@
 
                 </tr>
                 <?php 
-                $que=$Que->all(['subject_id'=>0]);
+                $ques=$Que->all(['subject_id'=>0]);
                 foreach($ques as $idx => $que){ ?>
                 
                 <tr>
