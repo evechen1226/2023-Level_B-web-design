@@ -44,7 +44,7 @@
                     <td><input type="radio" name="sh" id="" value="<?=$row['id'];?>"  <?=($row['sh']==1)?'checked':'';?>></td>
                     <td><input type="checkbox" name="del[]" id="" value="<?=$row['id'];?>"></td>
                     <!-- 如果直接使用 <button> 會預設為 submit -->
-                    <td><input class="btn btn-info" type="button" value="更新圖片"  onclick="op('#cover','#cvr','upload_title.php')" value="新增網站標題圖片"></td>
+                    <td><input class="btn btn-info" type="button" value="更新圖片"  onclick="op('#cover','#cvr','upload_title.php?id=<?=$row['id'];?>')" value="新增網站標題圖片"></td>
                     <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                 </tr>
                 <?php
