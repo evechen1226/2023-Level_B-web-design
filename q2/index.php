@@ -26,14 +26,20 @@
                     <th>狀態</th>
 
                 </tr>
+                <?php 
+                $que=$Que->all(['subject_id'=>0]);
+                foreach($ques as $idx => $que){ ?>
+                
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><?=$idx+1?></td>
+                    <td><?=$que['text'];?></td>
+                    <td><?=$que['conut'];?></td>
+                    <td><a href='result.php?id=<?=$que['id'];?>' class="btn btn-info">投票結果</a></td>
+                    <td><a href='vote.php?id=<?=$que['id'];?>' class="btn btn-info">我要投票</a></td>
                 </tr>
-
+<?php
+};
+?>
             </table>
         </fieldset>
 
