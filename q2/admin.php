@@ -45,6 +45,48 @@
             </form>
         </fieldset>
 
+        <fieldset>
+            <legend>問卷列表</legend>
+            <div class="col-10 mx-auto">
+                <table>
+                    <?php
+                    $ques = $Que->all(['subject_id' => 0]);
+                    foreach ($ques as $idx => $que) { ?>
+
+                        <tr>
+                            <td><?= $idx; ?></td>
+                            <td><?= $que['text'] ?></td>
+                            <td><button class="btn bnt-info">顯示</button>
+                                <button class="btn bnt-info">編輯</button>
+                                <button class="btn bnt-info">刪除</button>
+                            </td>
+                        </tr>
+
+                    <?php
+                    }
+                    ?>
+                </table>
+            </div>
+
+        </fieldset>
+
+        <table>
+            <tr>
+                <td>問卷主題</td>
+                <td>問卷名稱</td>
+                <td>顯示</td>
+                <td>刪除</td>
+            </tr>
+
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
     </main>
 
 
