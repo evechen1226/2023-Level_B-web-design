@@ -1,21 +1,13 @@
-<h3 class="text-center">更新標題區圖片</h3>
-<hr>
-<form action="./upload_title.php" method="post" enctype="multipart/form-data">
+<?php
+include_once "./db.php";
 
-    <table class="col-8 m-auto">
-        <tr>
-            <td>標題區圖片：</td>
-            <td><input type="file" name="img" id=""></td>
-        </tr>
-        <tr>
-            <td>標題區替代文字：</td>
-            <td><input type="text" name="text" id=""></td>
-        </tr>
 
-    </table>
+if(isset($_POST['id'])){
+   move_uploaded_file($_FILES['img']['tmp_name'],"./q1/img".$_FILES['img']['name']); 
+   $row['img']=$_FILES['img']['name'];
+   
+   $Title->save($row);
+}
 
-    <div class="text-center">
-        <input type="submit" value="新增">
-        <input type="reset" value="重置">
-    </div>
-</form>
+
+header("location:./index.php");

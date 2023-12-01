@@ -1,13 +1,16 @@
-<?php
-include_once "./db.php";
+<h3 class="text-center">更新標題區圖片</h3>
+<hr>
+<form action="./update_title.php" method="post" enctype="multipart/form-data">
 
+    <table class="col-8 m-auto">
+        <tr>
+            <td>標題區圖片：</td>
+            <td><input type="file" name="img" id=""></td>
+        </tr>
+    </table>
 
-if(!empty($_FILES['img']['tmp_name'])){
-   move_uploaded_file($_FILES['img']['tmp_name'],"./q1/img".$_FILES['img']['name']); 
-   $_POST['img']=$_FILES['img']['name'];
-}
-$_POST['sh']=0;
-
-$Title->save($_POST);
-
-header("location:./index.php");
+    <div class="text-center">
+        <input type="submit" value="更新">
+        <input type="reset" value="重置">
+    </div>
+</form>
