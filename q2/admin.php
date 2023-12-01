@@ -1,3 +1,4 @@
+<?php include_once "./db.php"?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +20,7 @@
 
         <fieldset>
             <legend>新增問卷</legend>
-            <form action="add_que.php" method="post">
+            <form action="./api/add_que.php" method="post">
                 <!-- 主題 -->
                 <div class="d-flex form-label">
                     <div class="col-3 p-2">問卷名稱</div>
@@ -29,10 +30,10 @@
                 </div>
                 <!-- 選項 -->
                 <div class="bg-light">
-                    <div class="p-2">
+                    <div class="p-2" id="option">
                         <label for="" class="form-label">選項</label>
-                        <input type="text" name="opt[]" >
-                        <input type="button" value="更多">
+                        <input type="text" name="opt[]">
+                        <input type="button" value="更多" onclick="more()">
                     </div>
                 </div>
 
@@ -53,3 +54,13 @@
 </body>
 
 </html>
+<script>
+    function more() {
+        // ` `才可將有分段的部份視為一個整體
+        let opt = `<div class="p-2">
+                        <label for="" class="form-label">選項</label>
+                        <input type="text" name="opt[]">
+                    </div>`
+        $("#option").before(opt)
+    }
+</script>
