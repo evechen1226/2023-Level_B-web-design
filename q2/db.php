@@ -3,14 +3,19 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB{
 
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=bquiz";
+    // protected $dsn = "mysql:host=localhost;charset=utf8;dbname=bquiz"; 本機端
+
+    // 當資料上傳同一伺服器時，對於dp.php, host= 還是 localhost , 除非是從遠端連過去
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=s1120414";
+
     protected $pdo;
     protected $table;
 
     public function __construct($table)
     {
         $this->table=$table;
-        $this->pdo=new PDO($this->dsn,'root','');
+        // $this->pdo=new PDO($this->dsn,'root','');本機端
+        $this->pdo=new PDO($this->dsn,'s1120414','s1120414');
     }
 
 
